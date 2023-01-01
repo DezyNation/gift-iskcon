@@ -24,7 +24,7 @@ const Index = () => {
             <Image src='logo.png' w={'12'} />
             <Text color={'white'} fontSize={'lg'}>ISKCON Inc.</Text>
           </HStack>
-          <Text color={'white'} mb={[8, 16]} fontSize={['2xl', '4xl']} className={Styles.messiri}>Krishna has a new year gift for you!</Text>
+          <Text color={'white'} mb={[8, 16]} fontSize={['2xl', '4xl']} className={Styles.messiri} textAlign={'center'}>Krishna has a new year gift for you!</Text>
           <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfD8ItQNCOytZU0cRRFnCuNo64AmhwCJs1xp2f7mvMItMy2Aw/formResponse"
             method='POST' target='hidden_iframe'
             onSubmit={() => download('./a78b635.pdf', 'Gift From Krishna.pdf')}
