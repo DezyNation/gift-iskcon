@@ -12,15 +12,16 @@ const Index = () => {
         <title>Krishna Has A Gift For You</title>
       </Head>
       <iframe src="#" frameBorder="0" name='hidden_iframe' style={{ width: 0, height: 0 }}></iframe>
-      <Box w={'full'} h={'100vh'} 
-      bg={"url('bg.jpg')"} bgPos={'right'} 
-      bgRepeat={'no-repeat'} bgSize={'cover'}>
+      <Box w={'full'} h={'100vh'}
+        bg={["url('bg.jpg')", "url('bgfull.jpg')"]} bgPos={['bottom', 'center']}
+        bgRepeat={'no-repeat'} bgSize={'cover'}
+        bgAttachment={['fixed', 'unset']}>
         <Box
           w={'full'} h={'100vh'} flexDirection={'column'}
           display={'flex'} bg={'rgba(0, 0, 0, 0.75)'}
-          alignItems={'center'} justifyContent={'flex-start'}
+          alignItems={'center'} justifyContent={'center'}
         >
-          <HStack spacing={2} pt={4} pb={16}>
+          <HStack position={'absolute'} top={0} l={0} r={0} alignItems={'center'} justifyContent={'center'} w={'full'} mx={'auto'} spacing={2} pt={4} pb={16}>
             <Image src='logo.png' w={'12'} />
             <Text color={'white'} fontSize={'lg'}>ISKCON Inc.</Text>
           </HStack>
@@ -32,22 +33,22 @@ const Index = () => {
             <Container
               w={['full', 'lg', 'xl']} p={6}
               rounded={'16'} boxShadow={['none', 'lg']}
-              bg={'#42855B'}
+              bg={'rgba(255,255,255,0.25)'}
             >
               <VStack spacing={8}>
                 <Input variant={'outline'} rounded={'full'}
                   name={'entry.1112728928'} placeholder={'Enter Your Name'}
-                  color={'white'} _placeholder={{ color: 'aqua' }} required />
+                  color={'white'} borderColor={'white'} _placeholder={{ color: 'white' }} required />
                 <Input variant={'outline'} rounded={'full'}
                   name={'entry.1695348309'} type={'email'} color={'white'}
-                  placeholder={'Enter Your Email'}
-                  _placeholder={{ color: 'aqua' }} required />
-                <Input variant={'outline'} rounded={'full'}
+                  placeholder={'Enter Your Email'} borderColor={'white'}
+                  _placeholder={{ color: 'white' }} required />
+                <Input variant={'outline'} rounded={'full'} borderColor={'white'}
                   name={'entry.783084646'} type={'tel'} color={'white'}
-                  placeholder={'Enter Phone Number'} _placeholder={{ color: 'aqua' }}
+                  placeholder={'Enter Phone Number'} _placeholder={{ color: 'white' }}
                   required />
                 <input type="hidden" name='_webhook' value={'https://script.google.com/macros/s/AKfycbyqu1QLP1oeqHHATUJpJpiCGH-c-zGBnRx4qWBWbzEvb8_CRr949FSa0HA5SSnETA-R/exec?gid=0'} />
-                <Button type={'submit'} colorScheme={'green'} rounded={'full'} bg={'#A9AF7E'}>
+                <Button type={'submit'} colorScheme={'blue'} rounded={'full'}>
                   Download The Gift
                 </Button>
               </VStack>
