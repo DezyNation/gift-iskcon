@@ -18,7 +18,7 @@ const Index = () => {
         alignItems={'center'} justifyContent={'center'}
       >
         <Text color={'white'} mb={[12, 20]} fontSize={['2xl', '4xl']} className={Styles.messiri}>Krishna has a gift for you!</Text>
-        <form action="https://formsubmit.co/9de68294aebf156ce14f386929436cb6"
+        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfD8ItQNCOytZU0cRRFnCuNo64AmhwCJs1xp2f7mvMItMy2Aw/formResponse"
           method='POST' target='hidden_iframe' 
           onSubmit={()=>download('./a78b635.pdf', 'Gift From Krishna.pdf')}
         >
@@ -29,14 +29,14 @@ const Index = () => {
           >
             <VStack spacing={8}>
               <Input variant={'outline'} rounded={'full'}
-                name={'Name'} placeholder={'Enter Your Name'}
+                name={'entry.1112728928'} placeholder={'Enter Your Name'}
                 color={'white'} _placeholder={{ color: 'aqua' }} required />
               <Input variant={'outline'} rounded={'full'}
-                name={'Email'} type={'email'} color={'white'}
+                name={'entry.1695348309'} type={'email'} color={'white'}
                 placeholder={'Enter Your Email'}
                 _placeholder={{ color: 'aqua' }} required />
               <Input variant={'outline'} rounded={'full'}
-                name={'Phone'} type={'tel'} color={'white'}
+                name={'entry.783084646'} type={'tel'} color={'white'}
                 placeholder={'Enter Phone Number'} _placeholder={{ color: 'aqua' }}
                 required />
                 <input type="hidden" name='_webhook' value={'https://script.google.com/macros/s/AKfycbyqu1QLP1oeqHHATUJpJpiCGH-c-zGBnRx4qWBWbzEvb8_CRr949FSa0HA5SSnETA-R/exec?gid=0'} />
