@@ -18,8 +18,8 @@ const Index = () => {
         alignItems={'center'} justifyContent={'center'}
       >
         <Text color={'white'} mb={[12, 20]} fontSize={['2xl', '4xl']} className={Styles.messiri}>Krishna has a gift for you!</Text>
-        {/* <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfD8ItQNCOytZU0cRRFnCuNo64AmhwCJs1xp2f7mvMItMy2Aw/formResponse" */}
-        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdLZavhr7_mP32e8bYV0OVFVSYMXw5oX4YQody70IXo-wVyiA/formResponse"
+        <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfD8ItQNCOytZU0cRRFnCuNo64AmhwCJs1xp2f7mvMItMy2Aw/formResponse"
+        {/* <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdLZavhr7_mP32e8bYV0OVFVSYMXw5oX4YQody70IXo-wVyiA/formResponse" */}
           method='POST' target='hidden_iframe' 
           onSubmit={()=>download('./a78b635.pdf', 'Gift From Krishna.pdf')}
         >
