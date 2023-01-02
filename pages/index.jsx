@@ -1,11 +1,19 @@
 import Head from 'next/head'
-import React from 'react'
+import {React, useState} from 'react'
 import { Box, Text, Input, Container, VStack, Button, HStack, Image } from '@chakra-ui/react'
 import useDownloader from 'react-use-downloader'
 import Styles from '../styles/global.module.css'
 
 const Index = () => {
   const { download } = useDownloader()
+  const [disabled, setDisabled] = useState(false)
+
+  function handleDownload(){
+    download('./a78b635.pdf', 'Gift From Krishna.pdf')
+    setDisabled(true)
+    setTimeout(()=>setDisabled(false),10000)
+  }
+
   return (
     <>
       <Head>
@@ -28,7 +36,7 @@ const Index = () => {
           <Text color={'white'} mb={[8, 16]} fontSize={['2xl', '4xl']} className={Styles.messiri} textAlign={'center'}>Krishna has a new year gift for you!</Text>
           <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfD8ItQNCOytZU0cRRFnCuNo64AmhwCJs1xp2f7mvMItMy2Aw/formResponse"
             method='POST' target='hidden_iframe'
-            onSubmit={() => download('./a78b635.pdf', 'Gift From Krishna.pdf')}
+            onSubmit={() => handleDownload()}
           >
             <Container
               w={['full', 'lg', 'xl']} p={6}
@@ -36,6 +44,7 @@ const Index = () => {
               bg={'rgba(255,255,255,0.25)'}
             >
               <VStack spacing={8}>
+                {disabled ? <Text color={'white'} py={4}>Your download will start soon!</Text> : null}
                 <Input variant={'outline'} rounded={'full'}
                   name={'entry.1112728928'} placeholder={'Enter Your Name'}
                   color={'white'} borderColor={'white'} _placeholder={{ color: 'white' }} required />
@@ -48,7 +57,7 @@ const Index = () => {
                   placeholder={'Enter Phone Number'} _placeholder={{ color: 'white' }}
                   required />
                 <input type="hidden" name='_webhook' value={'https://script.google.com/macros/s/AKfycbyqu1QLP1oeqHHATUJpJpiCGH-c-zGBnRx4qWBWbzEvb8_CRr949FSa0HA5SSnETA-R/exec?gid=0'} />
-                <Button type={'submit'} colorScheme={'blue'} rounded={'full'}>
+                <Button type={'submit'} colorScheme={'blue'} rounded={'full'} disabled={disabled}>
                   Download The Gift
                 </Button>
               </VStack>
