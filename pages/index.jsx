@@ -1,17 +1,23 @@
 import Head from 'next/head'
-import {React, useState} from 'react'
+import { React, useState } from 'react'
 import { Box, Text, Input, Container, VStack, Button, HStack, Image } from '@chakra-ui/react'
 import useDownloader from 'react-use-downloader'
+import ReCAPTCHA from "react-google-recaptcha";
 import Styles from '../styles/global.module.css'
 
 const Index = () => {
   const { download } = useDownloader()
-  const [disabled, setDisabled] = useState(false)
+  const [disabled, setDisabled] = useState(true)
+  const [loading, setLoading] = useState(false)
 
-  function handleDownload(){
+  function onChange() {
+    setDisabled(false)
+  }
+
+  function handleDownload() {
     download('./a78b635.pdf', 'Gift From Krishna.pdf')
-    setDisabled(true)
-    setTimeout(()=>setDisabled(false),20000)
+    setLoading(true)
+    setTimeout(() => setLoading(false), 20000)
   }
 
   return (
@@ -44,7 +50,7 @@ const Index = () => {
               bg={'rgba(255,255,255,0.25)'}
             >
               <VStack spacing={8}>
-                {disabled ? <Text color={'white'} py={4}>Your download will start soon!</Text> : null}
+                {loading ? <Text color={'white'} py={4}>Your download will start soon!</Text> : null}
                 <Input variant={'outline'} rounded={'full'}
                   name={'entry.1112728928'} placeholder={'Enter Your Name'}
                   color={'white'} borderColor={'white'} _placeholder={{ color: 'white' }} required />
@@ -57,6 +63,10 @@ const Index = () => {
                   placeholder={'Enter Phone Number'} _placeholder={{ color: 'white' }}
                   required />
                 <input type="hidden" name='_webhook' value={'https://script.google.com/macros/s/AKfycbyqu1QLP1oeqHHATUJpJpiCGH-c-zGBnRx4qWBWbzEvb8_CRr949FSa0HA5SSnETA-R/exec?gid=0'} />
+                <ReCAPTCHA
+                  sitekey="6Le8dsYjAAAAAAWZ1nCyfw_aoftGxcpo3G41xVtZ"
+                  onChange={onChange}
+                />
                 <Button type={'submit'} colorScheme={'blue'} rounded={'full'} disabled={disabled}>
                   Download The Gift
                 </Button>
