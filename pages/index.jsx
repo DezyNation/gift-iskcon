@@ -17,7 +17,7 @@ const Index = () => {
   function handleDownload() {
     download('./a78b635.pdf', 'Gift From Krishna.pdf')
     setLoading(true)
-    setTimeout(() => setLoading(false), 20000)
+    setTimeout(() => setLoading(false), 60000)
   }
 
   return (
@@ -67,7 +67,7 @@ const Index = () => {
                   sitekey="6Le8dsYjAAAAAAWZ1nCyfw_aoftGxcpo3G41xVtZ"
                   onChange={onChange}
                 />
-                <Button type={'submit'} colorScheme={'blue'} rounded={'full'} disabled={disabled}>
+                <Button type={'submit'} colorScheme={'blue'} isLoading={loading} rounded={'full'} disabled={disabled}>
                   Download The Gift
                 </Button>
               </VStack>
