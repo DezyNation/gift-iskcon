@@ -11,7 +11,7 @@ const Index = () => {
   function handleDownload(){
     download('./a78b635.pdf', 'Gift From Krishna.pdf')
     setDisabled(true)
-    setTimeout(()=>setDisabled(false),10000)
+    setTimeout(()=>setDisabled(false),20000)
   }
 
   return (
