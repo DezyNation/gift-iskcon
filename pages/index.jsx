@@ -61,7 +61,7 @@ const Index = () => {
                 <Input variant={'outline'} rounded={'full'} borderColor={'white'}
                   name={'entry.783084646'} type={'tel'} color={'white'}
                   placeholder={'Enter Phone Number'} _placeholder={{ color: 'white' }}
-                  required />
+                  />
                 <input type="hidden" name='_webhook' value={'https://script.google.com/macros/s/AKfycbyqu1QLP1oeqHHATUJpJpiCGH-c-zGBnRx4qWBWbzEvb8_CRr949FSa0HA5SSnETA-R/exec?gid=0'} />
                 <ReCAPTCHA
                   sitekey="6Le8dsYjAAAAAAWZ1nCyfw_aoftGxcpo3G41xVtZ"
