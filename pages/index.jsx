@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import { React, useState } from 'react'
-import { Box, Text, Input, Container, VStack, Button, HStack, Image } from '@chakra-ui/react'
+import { Box, Text, Input, Container, VStack, Button, HStack, Image, Progress } from '@chakra-ui/react'
 import useDownloader from 'react-use-downloader'
 import ReCAPTCHA from "react-google-recaptcha";
 import Styles from '../styles/global.module.css'
 
 const Index = () => {
-  const { download } = useDownloader()
+  const { download, percentage } = useDownloader()
   const [disabled, setDisabled] = useState(true)
   const [loading, setLoading] = useState(false)
 
@@ -25,17 +25,17 @@ const Index = () => {
       <Head>
         <title>Krishna Has A Gift For You</title>
       </Head>
-      <iframe src="#" frameBorder="0" name='hidden_iframe' style={{ width: 0, height: 0 }}></iframe>
-      <Box w={'full'} h={'100vh'}
+      <iframe src="#" name='hidden_iframe' style={{ width: 0, height: 0 }}></iframe>
+      <Box w={'full'} h={'auto'}
         bg={["url('bg.jpg')", "url('bgfull.jpg')"]} bgPos={['bottom', 'center']}
         bgRepeat={'no-repeat'} bgSize={'cover'}
         bgAttachment={['fixed', 'unset']}>
-        <Box
-          w={'full'} h={'100vh'} flexDirection={'column'}
+        <Box pb={8}
+          w={'full'} h={'auto'} flexDirection={'column'}
           display={'flex'} bg={'rgba(0, 0, 0, 0.75)'}
           alignItems={'center'} justifyContent={'center'}
         >
-          <HStack position={'absolute'} top={0} l={0} r={0} alignItems={'center'} justifyContent={'center'} w={'full'} mx={'auto'} spacing={2} pt={4} pb={16}>
+          <HStack alignItems={'center'} justifyContent={'center'} w={'full'} mx={'auto'} spacing={2} pt={4} pb={16}>
             <Image src='logo.png' w={'12'} />
             <Text color={'white'} fontSize={'lg'}>ISKCON Inc.</Text>
           </HStack>
@@ -50,7 +50,11 @@ const Index = () => {
               bg={'rgba(255,255,255,0.25)'}
             >
               <VStack spacing={8}>
-                {loading ? <Text color={'white'} py={4}>Your download will start soon!</Text> : null}
+                {percentage<=100 && percentage>0 ? 
+                <Box>
+                  <Text color={'white'}>Downloading</Text>
+                  <Progress colorScheme={'yellow'} value={percentage} w={'full'} />
+                </Box> : null}
                 <Input variant={'outline'} rounded={'full'}
                   name={'entry.1112728928'} placeholder={'Enter Your Name'}
                   color={'white'} borderColor={'white'} _placeholder={{ color: 'white' }} required />
