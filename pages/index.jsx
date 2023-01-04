@@ -15,7 +15,7 @@ const Index = () => {
   }
 
   function handleDownload() {
-    download('./a78b635.pdf', 'Gift From Krishna.pdf')
+    download('https://link.storjshare.io/raw/ju2gmuv2hvbtxagh6iphxgt75kbq/giftbykrishna/Gift%20From%20Krishna%20%281%29.pdf', 'Gift From Krishna.pdf')
     setLoading(true)
     setTimeout(() => setLoading(false), 60000)
   }
