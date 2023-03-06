@@ -4,7 +4,6 @@ import { Box, Text, Input, Container, VStack, Button, HStack, Image, Progress } 
 import useDownloader from 'react-use-downloader'
 import ReCAPTCHA from "react-google-recaptcha";
 import Styles from '../styles/global.module.css'
-import Link from 'next/link';
 
 const Index = () => {
   const { download, percentage } = useDownloader()
@@ -28,7 +27,8 @@ const Index = () => {
       </Head>
       <iframe src="#" name='hidden_iframe' style={{ width: 0, height: 0 }}></iframe>
       <Box w={'full'} minH={'100vh'}
-        bgImg={'https://www.vcm.org.in/blog/wp-content/uploads/2017/03/LordChaitanya-crop.jpg'} bgPos={['bottom', 'center']}
+        bgImg={'https://www.vcm.org.in/blog/wp-content/uploads/2017/03/LordChaitanya-crop.jpg'} 
+        bgPos={['80% 100%', 'center']}
         bgRepeat={'no-repeat'} bgSize={'cover'}
         bgAttachment={['fixed', 'unset']}>
         <Box pb={8}
@@ -85,15 +85,22 @@ const Index = () => {
             </Container>
           </form>
 
-          <VStack pt={12} mb={4}>
-            <Link href={'https://projects.iskconincstore.com'}>
+          <a href={'https://projects.iskconincstore.com'} target={'_blank'} style={{ width: '100%' }}>
+            <Box
+              p={4} pt={12}
+              w={'full'}
+              display={'flex'}
+              flexDir={'column'}
+              alignItems={'center'}
+              justifyContent={'center'}
+            >
               <Image
                 src={'/donation.jpeg'}
                 w={['full', 'xs']} pb={2}
               />
               <Button size={'sm'} colorScheme={'yellow'}>Consider Donating For Building This Temple</Button>
-            </Link>
-          </VStack>
+            </Box>
+          </a>
         </Box>
         <Box color={'white'} bg={'#483838'} py={2}>
           <Text textAlign={'center'} color={'white'}>&copy; Copyright 2023, Krishna Consciousness Society, India</Text>
